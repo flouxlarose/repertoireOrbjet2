@@ -19,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     Ecouteur ec;
     Button boutonValider;
+    Button boutonEnvoyer;
     EditText champNomCompte;
+    EditText champDestinataire;
+    EditText champMontant;
     TextView champSolde;
 
     ArrayList<String> choix;
@@ -38,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         boutonValider = findViewById(R.id.bouttonValider);
+        boutonEnvoyer = findViewById(R.id.envoyer);
         champNomCompte = findViewById(R.id.compte);
         champSolde = findViewById(R.id.solde);
+        champDestinataire = findViewById(R.id.Receveur);
+        champMontant = findViewById(R.id.montant);
 
         choix = new ArrayList<>();
         choix.add("CHEQUE");
@@ -51,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         // étape 2
         boutonValider.setOnClickListener(ec);
+        boutonEnvoyer.setOnClickListener(ec);
 
     }
 
@@ -58,17 +65,41 @@ public class MainActivity extends AppCompatActivity {
     private class Ecouteur implements View.OnClickListener
     {
         @Override
-        public void onClick(View v) {
-            // quand on click on arrive ici
-            String nomCompte = champNomCompte.getText().toString();
-            // autre maniere de faire:
-            // String nomCompte = String.valueOf((champNomCompte.getText()));
-            nomCompte = nomCompte.trim().toUpperCase();
-            if ((choix.contains(nomCompte))){
-                solde = 500;
-                champSolde.setText(String.valueOf(solde));
-            }
+        public void onClick(View source) {
+            if (source == boutonValider){
+                // quand on click on arrive ici
+                String nomCompte = champNomCompte.getText().toString();
+                // autre maniere de faire:
+                // String nomCompte = String.valueOf((champNomCompte.getText()));
+                nomCompte = nomCompte.trim().toUpperCase();
 
+                if (choix.contains(nomCompte)){
+                    solde = 500;
+                    champSolde.setText(String.valueOf(solde));
+                }
+
+                else {
+                    champSolde.setText("pas un bon nom");
+                    champNomCompte.setText("");
+                }
+            }
+            else if (source == boutonEnvoyer){
+                String destinataire = champDestinataire.getText().toString();
+                String temp = champMontant.getText().toString();
+                int montant = Integer.parseInt(temp);
+
+                if (destinataire.matches("^[^@\\s]+@[^@\\s]+\\.com$") && solde >= montant){
+                    // est un courriel
+                    solde -= montant;
+                    champSolde.setText(String.valueOf(solde));
+                    champDestinataire.setText("");
+                    champMontant.setText("");
+                }
+                else{
+                    champDestinataire.setText("invalide");
+                    champMontant.setText("invalide");
+                }
+            }
         }
     }
 }
