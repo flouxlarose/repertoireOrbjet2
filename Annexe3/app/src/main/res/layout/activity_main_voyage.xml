@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityVoyage">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="179dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="128dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plage" />
+
+    <ImageButton
+        android:id="@+id/avion"
+        android:layout_width="117dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="268dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/avion" />
+
+    <ImageButton
+        android:id="@+id/hotel"
+        android:layout_width="114dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="52dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avion"
+        app:srcCompat="@drawable/hotel" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="600dp" />
+
+    <TextView
+        android:id="@+id/qteAvion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="304dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/avion"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/qteHotel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="464dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/hotel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="612dp"
+        android:text="0.00$"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
