@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-
     Ecouteur ec;
     Button boutonEnvoyer;
     Spinner spinnerNom;
