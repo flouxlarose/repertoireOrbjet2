@@ -17,10 +17,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
-    EcouteurTouch ec;
+    List<Forme> formesList = new ArrayList<>();
+    EcouteurTouch ecTouch;
     EcouteurClick ecClick;
     LinearLayout main;
     LinearLayout outils;
@@ -49,37 +54,43 @@ public class MainActivity extends AppCompatActivity {
         couleurs = findViewById(R.id.couleurs);
         outils = findViewById(R.id.outils);
 
-        ec = new EcouteurTouch();
+        ecTouch = new EcouteurTouch();
+        ecClick = new EcouteurClick();
         surf = new SurfaceDessin(this);
         surf.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        surf.setOnTouchListener(ec);
+        surf.setOnTouchListener(ecTouch);
         draw.addView(surf);
 
-        for
+        for (int i =0; i < outils.getChildCount(); i++){
+            outils.getChildAt(i).setOnClickListener(ecClick);
+        }
+
+        for(int i = 0; i < couleurs.getChildCount(); i++){
+            if(couleurs.getChildAt(i) instanceof Chip){
+                couleurs.getChildAt(i).setOnClickListener(ecClick);
+            }
+        }
     }
 
     private class EcouteurTouch implements View.OnTouchListener {
         @Override
         public boolean onTouch(View v, MotionEvent motionEvent){
-            if(v == draw){
-                int x = (int)motionEvent.getX();
-                int y = (int)motionEvent.getY();
+            int x = (int)motionEvent.getX();
+            int y = (int)motionEvent.getY();
 
-                if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
-                    depart = new Point(x, y);
-                    formeCourante = typeOutil(outilActif);
-                    formeCourante.ajouterPoint(depart);
-                    surf.invalidate();
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
-                    arrivee = new Point(x, y);
-                    formeCourante.ajouterPoint(arrivee);
-                    surf.invalidate();
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    depart = null;
-                    arrivee = null;
-                }
-            }else if(v.getParent() == outils){
-                outilActif = v.getTag().toString();
+            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+                depart = new Point(x, y);
+                formeCourante = typeOutil(outilActif);
+                formeCourante.ajouterPoint(depart);
+                formesList.add(formeCourante);
+                surf.invalidate();
+            } else if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
+                arrivee = new Point(x, y);
+                formeCourante.ajouterPoint(arrivee);
+                surf.invalidate();
+            } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                depart = null;
+                arrivee = null;
             }
 
             return true;
@@ -89,8 +100,13 @@ public class MainActivity extends AppCompatActivity {
     private class EcouteurClick implements View.OnClickListener{
         @Override
         public void onClick(View v) {
-            if(v.getTag() != null){
-                outilActif = v.getTag().toString();
+            if (v.getParent() == couleurs){
+                couleurCourante = Color.parseColor(v.getTag().toString());
+            }
+            if(v.getParent() == outils){
+                if(v.getTag() != null){
+                    outilActif = v.getTag().toString();
+                }
             }
         }
     }
@@ -108,16 +124,16 @@ public class MainActivity extends AppCompatActivity {
 
         public SurfaceDessin (Context context){
             super(context);
-            this.setBackgroundColor(Color.WHITE);
-            crayon = new Paint(Paint.ANTI_ALIAS_FLAG);
-            crayon.setColor(Color.RED);
         }
 
         @Override
         protected void onDraw(@NonNull Canvas canvas){
             super.onDraw(canvas);
-            if (formeCourante != null){
+            if(formeCourante != null){
                 formeCourante.dessiner(canvas);
+            }
+            for (Forme f: formesList) {
+                f.dessiner(canvas);
             }
         }
     }

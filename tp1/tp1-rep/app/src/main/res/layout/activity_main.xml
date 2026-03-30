@@ -27,7 +27,8 @@
                 android:layout_height="match_parent"
                 android:background="#767070"
                 app:selectionRequired="true"
-                app:singleSelection="true">
+                app:singleSelection="true"
+                >
 
 
                 <com.google.android.material.chip.Chip
@@ -37,9 +38,10 @@
                     android:layout_weight="1"
                     android:checkable="true"
 
-                    app:chipBackgroundColor="#E01313"
+                    app:chipBackgroundColor="#FFE01313"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp" />
+                    app:chipStrokeWidth="3dp"
+                    android:tag="#FFE01313"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip2"
@@ -48,9 +50,10 @@
                     android:layout_weight="1"
                     android:checkable="true"
 
-                    app:chipBackgroundColor="#552E8C"
+                    app:chipBackgroundColor="#FF552E8C"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp" />
+                    app:chipStrokeWidth="3dp"
+                    android:tag="#FF552E8C"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip3"
@@ -59,9 +62,10 @@
                     android:layout_weight="1"
                     android:checkable="true"
 
-                    app:chipBackgroundColor="#FFEB3B"
+                    app:chipBackgroundColor="#FFFFEB3B"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp" />
+                    app:chipStrokeWidth="3dp"
+                    android:tag="#FFFFEB3B"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip4"
@@ -70,9 +74,10 @@
                     android:layout_weight="1"
                     android:checkable="true"
 
-                    app:chipBackgroundColor="#F44336"
+                    app:chipBackgroundColor="#FFF44336"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp" />
+                    app:chipStrokeWidth="3dp"
+                    android:tag="#FFF44336"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip5"
@@ -81,9 +86,10 @@
                     android:layout_weight="1"
                     android:checkable="true"
 
-                    app:chipBackgroundColor="#009688"
+                    app:chipBackgroundColor="#FF009688"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp" />
+                    app:chipStrokeWidth="3dp"
+                    android:tag="#FF009688"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip6"
@@ -92,9 +98,10 @@
                     android:layout_weight="1"
                     android:checkable="true"
 
-                    app:chipBackgroundColor="#FFFFFF"
+                    app:chipBackgroundColor="#FFFFFFFF"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp" />
+                    app:chipStrokeWidth="3dp"
+                    android:tag="#FFFFFFFF"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip7"
@@ -103,9 +110,10 @@
                     android:layout_weight="1"
                     android:checkable="true"
 
-                    app:chipBackgroundColor="#000000"
+                    app:chipBackgroundColor="#FF000000"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp" />
+                    app:chipStrokeWidth="3dp"
+                    android:tag="#FF000000"/>
 
             </com.google.android.material.chip.ChipGroup>
 

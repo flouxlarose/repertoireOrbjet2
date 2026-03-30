@@ -26,6 +26,7 @@ public class Tracer extends Forme {
     public void dessiner(Canvas c){
         Paint crayon;
         crayon = new Paint(Paint.ANTI_ALIAS_FLAG);
+        crayon.setStyle(Paint.Style.STROKE);
         crayon.setColor(getCouleur());
         crayon.setStrokeWidth(getWidth());
         c.drawPath(p, crayon);
