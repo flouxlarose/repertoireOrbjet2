@@ -22,9 +22,13 @@
             android:orientation="horizontal">
 
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/couleurs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#767070">
+                android:background="#767070"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip1"
@@ -32,11 +36,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checkable="true"
+
                     app:chipBackgroundColor="#E01313"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp"
-                    app:selectionRequired="true"
-                    app:singleSelection="true" />
+                    app:chipStrokeWidth="3dp" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip2"
@@ -44,11 +47,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checkable="true"
+
                     app:chipBackgroundColor="#552E8C"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp"
-                    app:selectionRequired="true"
-                    app:singleSelection="true" />
+                    app:chipStrokeWidth="3dp" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip3"
@@ -56,11 +58,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checkable="true"
+
                     app:chipBackgroundColor="#FFEB3B"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp"
-                    app:selectionRequired="true"
-                    app:singleSelection="true" />
+                    app:chipStrokeWidth="3dp" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip4"
@@ -68,11 +69,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checkable="true"
+
                     app:chipBackgroundColor="#F44336"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp"
-                    app:selectionRequired="true"
-                    app:singleSelection="true" />
+                    app:chipStrokeWidth="3dp" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip5"
@@ -80,11 +80,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checkable="true"
+
                     app:chipBackgroundColor="#009688"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp"
-                    app:selectionRequired="true"
-                    app:singleSelection="true" />
+                    app:chipStrokeWidth="3dp" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip6"
@@ -92,11 +91,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checkable="true"
+
                     app:chipBackgroundColor="#FFFFFF"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp"
-                    app:selectionRequired="true"
-                    app:singleSelection="true" />
+                    app:chipStrokeWidth="3dp" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip7"
@@ -104,11 +102,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checkable="true"
+
                     app:chipBackgroundColor="#000000"
                     app:chipStrokeColor="@color/effetschips"
-                    app:chipStrokeWidth="3dp"
-                    app:selectionRequired="true"
-                    app:singleSelection="true" />
+                    app:chipStrokeWidth="3dp" />
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -131,6 +128,7 @@
         android:background="#FFFFFF">
 
         <LinearLayout
+            android:id="@+id/outils"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
@@ -141,84 +139,96 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/cercle" />
+                app:srcCompat="@drawable/cercle"
+                android:tag="cercle"/>
 
             <ImageView
                 android:id="@+id/imageRect"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rectangle" />
+                app:srcCompat="@drawable/rectangle"
+                android:tag="rect"/>
 
             <ImageView
                 android:id="@+id/imageTriangle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/triangle" />
+                app:srcCompat="@drawable/triangle"
+                android:tag="triangle"/>
 
             <ImageView
                 android:id="@+id/imageCrayon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/crayon" />
+                app:srcCompat="@drawable/crayon"
+                android:tag="crayon"/>
 
             <ImageView
                 android:id="@+id/imageEfface"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/efface" />
+                app:srcCompat="@drawable/efface"
+                android:tag="efface"/>
 
             <ImageView
                 android:id="@+id/imageTrait"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/largeur_trait" />
+                app:srcCompat="@drawable/largeur_trait"
+                android:tag="trait"/>
 
             <ImageView
                 android:id="@+id/imagePalette"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/palette" />
+                app:srcCompat="@drawable/palette"
+                android:tag="palette"/>
 
             <ImageView
                 android:id="@+id/imagePipette"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/pipette" />
+                app:srcCompat="@drawable/pipette"
+                android:tag="pipette"/>
 
             <ImageView
                 android:id="@+id/imageSeau"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/remplir" />
+                app:srcCompat="@drawable/remplir"
+                android:tag="seau"/>
 
             <ImageView
                 android:id="@+id/imageBack"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/undo" />
+                app:srcCompat="@drawable/undo"
+                android:tag="back"/>
 
             <ImageView
                 android:id="@+id/imageForward"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/redo" />
+                app:srcCompat="@drawable/redo"
+                android:tag="forward"/>
 
             <ImageView
                 android:id="@+id/imageSauv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/enregistrer" />
+                app:srcCompat="@drawable/enregistrer"
+                android:tag="sauv"/>
         </LinearLayout>
     </HorizontalScrollView>
 
