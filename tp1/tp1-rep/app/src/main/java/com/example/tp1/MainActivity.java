@@ -115,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
         switch(tag){
             case "crayon":
                 return new Tracer(couleurCourante, width);
+            case "rect":
+                return new Rectangle(couleurCourante, width);
         }
         return null;
     }
