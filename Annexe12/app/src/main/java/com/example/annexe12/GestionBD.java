@@ -73,11 +73,23 @@ public class GestionBD extends SQLiteOpenHelper {
         return listeInvention;
     }
 
-    public boolean aBonneReponse(String nom,String invention){
+    public boolean aBonneReponse(String nom, String invention){
         String[] params = {nom, invention};
         Cursor c = database.rawQuery("SELECT nom, invention FROM inventeur WHERE nom = ? AND invention = ?", params);
         boolean rep = c.moveToFirst();
         c.close();
         return rep;
+    }
+
+    public int trouverIndiceBonneReponse (String nom) throws Exception{
+        String[]tab = {nom};
+        Cursor c = database.rawQuery("SELECT _id FROM inventeur WHERE nom = ?", tab);
+        if(c.moveToFirst()){
+            int rep = c.getInt(0) - 1; // les _id commencent à 1
+            c.close();
+            return rep;
+        }
+        else
+            throw new Exception("Le nom de l'inventeur n'est pas dans la table");
     }
 }
