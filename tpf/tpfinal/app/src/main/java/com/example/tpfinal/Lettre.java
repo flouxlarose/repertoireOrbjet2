@@ -3,7 +3,6 @@ package com.example.tpfinal;
 public class Lettre {
     private char lettre;
     private int valeur;
-    private int poids;
 
     private Bonus bonus;
 
@@ -38,14 +37,6 @@ public class Lettre {
 
     public void setValeur(int valeur) {
         this.valeur = valeur;
-    }
-
-    public int getPoids() {
-        return poids;
-    }
-
-    public void setPoids(int poids) {
-        this.poids = poids;
     }
 
     public Bonus getBonus() {
