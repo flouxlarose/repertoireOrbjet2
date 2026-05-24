@@ -26,7 +26,23 @@ public class Mot {
         motPotentiel.clear();
     }
 
+    public void ajouterLettre(Lettre lettre){
+        motPotentiel.add(lettre);
+    }
+
     public ArrayList<Lettre> getMotPotentiel() {
         return motPotentiel;
+    }
+
+    public String getMot(){
+        StringBuilder mot = new StringBuilder();
+        for (Lettre lettre : motPotentiel){
+            mot.append(lettre.getLettre());
+        }
+        return mot.toString();
+    }
+
+    public int longueur(){
+        return motPotentiel.size();
     }
 }
