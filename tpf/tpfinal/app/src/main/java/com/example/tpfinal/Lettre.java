@@ -6,9 +6,9 @@ public class Lettre {
 
     private Bonus bonus;
 
-    public Lettre(char lettre, int valeur, int poids, Bonus bonus) {
+    public Lettre(char lettre) {
         this.lettre = lettre;
-        this.valeur = valeur;
+        setValeur();
         this.bonus = Bonus.NONE;        //par défaut n'a pas de bonus
     }
 
@@ -32,11 +32,31 @@ public class Lettre {
     }
 
     public int getValeur() {
-        return valeur;
+        return valeurLettre();
     }
 
-    public void setValeur(int valeur) {
-        this.valeur = valeur;
+    public void setValeur() {
+        switch (Character.toUpperCase(lettre)) {
+            case 'E': case 'A': case 'I': case 'O': case 'N':
+            case 'S': case 'T': case 'R': case 'U': case 'L':
+                this.valeur = 1;
+                break;
+            case 'D': case 'G': case 'M':
+                this.valeur =  2;
+                break;
+            case 'B': case 'C': case 'P':
+                this.valeur =  3;
+                break;
+            case 'F': case 'H': case 'V':
+                this.valeur =  4;
+                break;
+            case 'J': case 'Q':
+                this.valeur =  8;
+                break;
+            case 'K': case 'W': case 'X': case 'Y': case 'Z':
+                this.valeur =  10;
+                break;
+        }
     }
 
     public Bonus getBonus() {

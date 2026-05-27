@@ -9,8 +9,9 @@ public class GrilleDeJeu {
 
     public GrilleDeJeu(){
         genererListeLettre();
-        grilleJeu = new Lettre[4][4];
+        grilleJeu = new Lettre[4][4];       // grille de 4 x 4
         creerGrille();
+        setBonus();
     }
 
     private void genererListeLettre(){
@@ -191,12 +192,49 @@ public class GrilleDeJeu {
     }
 
     public void creerGrille(){
-        Random r = new Random();
-        for (Lettre[] ligne : grilleJeu) {
-            for(Lettre lettre : ligne){
-                lettre.setLettre(randomLettre());
+        for (int i = 0; i < grilleJeu.length; i++) {
+            for (int j = 0; j < grilleJeu[i].length; j++) {
+                grilleJeu[i][j] = new Lettre(randomLettre());           // crée l'objet
             }
         }
+    }
+
+    public void setBonus(){
+        Random r = new Random();
+        int ligne = 0;
+        int colonne = 0;
+
+        int compteurDouble = 0;
+        int compteurTriple = 0;
+        int compteurMotDouble = 0;
+
+        while (compteurDouble < 2){
+            ligne = r.nextInt(4);
+            colonne = r.nextInt(4);
+            if(grilleJeu[ligne][colonne].getBonus() == Bonus.NONE){
+                grilleJeu[ligne][colonne].setBonus(Bonus.DOUBLE);
+                compteurDouble ++;
+            }
+        }
+
+        while (compteurTriple < 1){
+            ligne = r.nextInt(4);
+            colonne = r.nextInt(4);
+            if(grilleJeu[ligne][colonne].getBonus() == Bonus.NONE) {
+                grilleJeu[ligne][colonne].setBonus(Bonus.TRIPLE);
+                compteurTriple++;
+            }
+        }
+
+        while (compteurMotDouble < 1){
+            ligne = r.nextInt(4);
+            colonne = r.nextInt(4);
+            if(grilleJeu[ligne][colonne].getBonus() == Bonus.NONE) {
+                grilleJeu[ligne][colonne].setBonus(Bonus.MOT_DOUBLE);
+                compteurMotDouble++;
+            }
+        }
+
     }
 
     public char randomLettre(){
