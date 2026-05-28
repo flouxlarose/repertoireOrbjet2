@@ -33,10 +33,6 @@ public class GestionBDScore extends SQLiteOpenHelper {
         database = this.getWritableDatabase();
     }
 
-    //public ArrayList<String> bestScore(int limit){
-//
-    //}
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE score (score INT, date TEXT)");

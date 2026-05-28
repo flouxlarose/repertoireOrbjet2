@@ -29,6 +29,15 @@
             android:text="pointsMot"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+        <TextView
+            android:id="@+id/motFormer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="motFormer"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -178,13 +187,11 @@
 
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+    <SeekBar
+        android:id="@+id/timer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_weight="1" />
+        android:layout_weight="0.5" />
 
     <TextView
         android:id="@+id/pointsTotal"
